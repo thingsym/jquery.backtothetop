@@ -1,8 +1,9 @@
 /*
  * jQuery Plugin Back to the Top
- * Version 1.1.0
+ * Version 1.1.1
  * Copyright 2012-2014 thingsym
- * URI: http://www.thingslabo.com
+ * URI: http://project.thingslabo.com/jquery.backtothetop
+ * Repository: https://github.com/thingsym/jquery.backtothetop
  * Date: 12.04.02 18:56:43
  * Dual licensed under the MIT and GPL licenses.
  * http://www.opensource.org/licenses/mit-license.php
