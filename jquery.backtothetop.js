@@ -41,13 +41,16 @@
 
     var init = function() {
       $('a[href^=#]').click(function() {
-        if ( $(this).data('backtothetop-scrolltop') === undefined && $(this.hash).attr('id') === undefined )
-          return;
-        var scrollTop = $(this).data('backtothetop-scrolltop') !== undefined ? $(this).data('backtothetop-scrolltop') : $(this.hash).offset().top ;
+        var scrollTop = $(this).data('backtothetop-scrolltop') !== undefined ? $(this).data('backtothetop-scrolltop') : $(this.hash).offset() ? $(this.hash).offset().top : $(this).attr('href') == '#' ? 0 : null ;
+
+        if (scrollTop === null)
+            return;
+
         var duration = $(this).data('backtothetop-duration') ? $(this).data('backtothetop-duration') : defaults.duration ;
         var easing = $(this).data('backtothetop-easing') ? $(this).data('backtothetop-easing') : defaults.easing ;
         var offset = $(this).data('backtothetop-offset') !== undefined ? $(this).data('backtothetop-offset') : defaults.offset ;
         $('html,body').animate({ 'scrollTop' : scrollTop + offset }, duration, easing);
+
         return false;
       });
     };

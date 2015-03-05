@@ -15,13 +15,12 @@ module.exports = function(grunt) {
         banner: '/*\n' +
           ' * <%= pkg.title %>\n' +
           ' * Version <%= pkg.version %>\n' +
-          ' * Update: <%= grunt.template.today("yyyy-mm-dd h:MM:ss") %>\n' +
+          ' * Update: <%= grunt.template.today("yyyy-mm-dd HH:MM:ss") %>\n' +
           ' * Copyright 2012-<%= grunt.template.today("yyyy") %> <%= pkg.author %>\n' +
           ' * URI: <%= pkg.url %>\n' +
           ' * Repository: <%= pkg.repository.url %>\n' +
           ' * <%= pkg.license %>\n' +
           ' * <%= _.pluck(pkg.licenses, "url").join("\\n * ") %>\n' +
-          ' * Required: <%= pkg.required %>\n' +
           '*/\n'
       },
       dist: {
