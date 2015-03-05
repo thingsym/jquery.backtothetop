@@ -21,7 +21,6 @@ module.exports = function(grunt) {
           ' * Repository: <%= pkg.repository.url %>\n' +
           ' * <%= pkg.license %>\n' +
           ' * <%= _.pluck(pkg.licenses, "url").join("\\n * ") %>\n' +
-          ' * Required: <%= pkg.required %>\n' +
           '*/\n'
       },
       dist: {
