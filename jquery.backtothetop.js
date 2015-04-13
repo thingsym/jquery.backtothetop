@@ -1,6 +1,6 @@
 /*
  * jQuery Plugin Back to the Top
- * Version 1.1.1
+ * Version 1.1.3
  * Copyright 2012-2014 thingsym
  * URI: http://project.thingslabo.com/jquery.backtothetop
  * Repository: https://github.com/thingsym/jquery.backtothetop
@@ -41,7 +41,7 @@
 
     var init = function() {
       $('a[href^=#]').click(function() {
-        var scrollTop = $(this).data('backtothetop-scrolltop') !== undefined ? $(this).data('backtothetop-scrolltop') : $(this.hash).offset() ? $(this.hash).offset().top : $(this).attr('href') == '#' ? 0 : null ;
+        var scrollTop = $(this).data('backtothetop-scrolltop') !== undefined ? $(this).data('backtothetop-scrolltop') : $(this.hash).offset() ? $(this.hash).offset().top : $(this).attr('id') == 'backtothetop-fixed' && $(this).attr('href') == '#' ? 0 : null ;
 
         if (scrollTop === null)
             return;
@@ -51,14 +51,14 @@
         var offset = $(this).data('backtothetop-offset') !== undefined ? $(this).data('backtothetop-offset') : defaults.offset ;
         $('html,body').animate({ 'scrollTop' : scrollTop + offset }, duration, easing);
 
-        return false;
+        return;
       });
     };
 
     var fixed = function() {
       var elem = $('a#backtothetop-fixed');
       if ( !elem )
-        return false;
+        return;
       var scrollOffset = elem.data('backtothetop-fixed-scroll-offset') !== undefined ? elem.data('backtothetop-fixed-scroll-offset') : defaults.scrolloffset ;
       var fadeIn = elem.data('backtothetop-fixed-fadein') ? elem.data('backtothetop-fixed-fadein') : defaults.fadein ;
       var fadeOut = elem.data('backtothetop-fixed-fadeout') ? elem.data('backtothetop-fixed-fadeout') : defaults.fadeout ;
