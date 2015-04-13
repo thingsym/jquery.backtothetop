@@ -51,14 +51,14 @@
         var offset = $(this).data('backtothetop-offset') !== undefined ? $(this).data('backtothetop-offset') : defaults.offset ;
         $('html,body').animate({ 'scrollTop' : scrollTop + offset }, duration, easing);
 
-        return false;
+        return;
       });
     };
 
     var fixed = function() {
       var elem = $('a#backtothetop-fixed');
       if ( !elem )
-        return false;
+        return;
       var scrollOffset = elem.data('backtothetop-fixed-scroll-offset') !== undefined ? elem.data('backtothetop-fixed-scroll-offset') : defaults.scrolloffset ;
       var fadeIn = elem.data('backtothetop-fixed-fadein') ? elem.data('backtothetop-fixed-fadein') : defaults.fadein ;
       var fadeOut = elem.data('backtothetop-fixed-fadeout') ? elem.data('backtothetop-fixed-fadeout') : defaults.fadeout ;
