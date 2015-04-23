@@ -50,8 +50,6 @@
         var easing = $(this).data('backtothetop-easing') ? $(this).data('backtothetop-easing') : defaults.easing ;
         var offset = $(this).data('backtothetop-offset') !== undefined ? $(this).data('backtothetop-offset') : defaults.offset ;
         $('html,body').animate({ 'scrollTop' : scrollTop + offset }, duration, easing);
-
-        return;
       });
     };
 
@@ -89,19 +87,24 @@
 
       $(window).scroll(function () {
         if ($(this).scrollTop() > scrollOffset) {
-          elem
-            .css({
-              'top' : top,
-              'bottom' : bottom,
-              'left' : left,
-              'right' : right,
-              'zIndex' : defaults.zIndex,
-              'position' : defaults.position
-            })
-            .fadeIn(fadeIn);
+          elem.css({
+            'top' : top,
+            'bottom' : bottom,
+            'left' : left,
+            'right' : right,
+            'zIndex' : defaults.zIndex,
+            'position' : defaults.position
+          });
+
+          if (elem.css('display') == 'none' ) {
+            elem.fadeIn(fadeIn);
+          }
+
         }
         else if ($(this).scrollTop() <= 0 + scrollOffset) {
-          elem.fadeOut(fadeOut);
+          if (elem.css('display') != 'none' ) {
+            elem.fadeOut(fadeOut);
+          }
         }
       });
     };
