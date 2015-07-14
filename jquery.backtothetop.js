@@ -1,6 +1,6 @@
 /*
  * jQuery Plugin Back to the Top
- * Version 1.1.4
+ * Version 1.1.5
  * Copyright 2012-2015 thingsym
  * URI: http://project.thingslabo.com/jquery.backtothetop
  * Repository: https://github.com/thingsym/jquery.backtothetop
