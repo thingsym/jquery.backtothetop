@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>jQuery Plugin Back to the Top</title>
+<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+<script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+<script type="text/javascript" src="jquery.backtothetop.min.js"></script>
+</head>
+<body id="top">
+
+<div class="entry-content">
+
+<nav>
+<ul>
+<li><a href="#wrap1">Heading 1</a></li>
+<li><a href="#wrap2" data-backtothetop-hash="true">Heading 2 (true)</a></li>
+<li><a href="#wrap3" data-backtothetop-hash="false">Heading 3 (false)</a></li>
+</ul>
+</nav>
+
+<div style="height: 100vh;">
+<h3 id="wrap1">Heading 1</h3>
+</div>
+
+<div style="height: 100vh;">
+<h3 id="wrap2">Heading 2</h3>
+</div>
+
+<div style="height: 100vh;">
+<h3 id="wrap3">Heading 3</h3>
+</div>
+
+</div>
+
+<a href="#top" id="backtothetop-fixed">Back to the Top</a>
+
+</body>
+</html>

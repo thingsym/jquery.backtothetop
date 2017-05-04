@@ -9,6 +9,7 @@
       duration: 300,
       easing: 'swing',
       offset: 0,
+      hash: true,
       scrolloffset: 0,
       fadein: 'slow',
       fadeout: 'slow',
@@ -33,7 +34,17 @@
         var duration = $(this).data('backtothetop-duration') ? $(this).data('backtothetop-duration') : defaults.duration ;
         var easing = $(this).data('backtothetop-easing') ? $(this).data('backtothetop-easing') : defaults.easing ;
         var offset = $(this).data('backtothetop-offset') !== undefined ? $(this).data('backtothetop-offset') : defaults.offset ;
-        $('html,body').animate({ 'scrollTop' : scrollTop + offset }, duration, easing);
+        var hash = typeof $(this).data('backtothetop-hash') === "undefined" ? defaults.hash : $(this).data('backtothetop-hash');
+        var href = $(this).attr('href');
+
+        $('html,body').animate(
+          { 'scrollTop' : scrollTop + offset }, duration, easing,
+          function() {
+            if (hash === true) {
+              window.history.pushState('', '', href);
+            }
+          }
+        );
 
         return false;
       });
