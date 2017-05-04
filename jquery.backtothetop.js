@@ -1,5 +1,5 @@
 (function($) {
-  $(window).on("load", function() {
+  $(window).on('load.BackToTheTop', function() {
     $('a[href^="#"]').BackToTheTop();
   });
 
@@ -24,7 +24,7 @@
     $.extend( defaults, options );
 
     var init = function() {
-      $('a[href^="#"]').click(function() {
+      $('a[href^="#"]').on('click.BackToTheTop', function() {
         var scrollTop = $(this).data('backtothetop-scrolltop') !== undefined ? $(this).data('backtothetop-scrolltop') : $(this.hash).offset() ? $(this.hash).offset().top : $(this).attr('id') == 'backtothetop-fixed' && $(this).attr('href') == '#' ? 0 : null ;
 
         if (scrollTop === null)
@@ -72,7 +72,7 @@
 
       elem.css({ 'display' : 'none' });
 
-      $(window).scroll(function () {
+      $(window).on('scroll.BackToTheTop', function () {
         if ($(this).scrollTop() > scrollOffset) {
           elem.css({
             'top' : top,
@@ -98,6 +98,5 @@
 
     init();
     fixed();
-
   };
 })(jQuery);
