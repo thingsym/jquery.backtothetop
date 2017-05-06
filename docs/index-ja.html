@@ -13,7 +13,7 @@
 </head>
 <body id="top" onload="prettyPrint()">
 <header>
-<p><a href="docs.html">English</a> | <a href="docs-ja.html">Japanese</a></p>
+<p><a href="index.html">English</a> | <a href="index-ja.html">Japanese</a></p>
 <h1><span class="sub">jQuery Plugin</span><br>BACK TO THE TOP</h1>
 </header>
 
@@ -21,6 +21,7 @@
 
 <p>jQuery Plugin「Back to the Top」は、ページの先頭 (トップ) へスムーズにスクロールして戻るjQueryプラグインです。px 単位で指定したり、ページ内のアンカーリンクもスムーズにスクロールして移動してくれます。</p>
 
+<nav>
 <ul>
 <li><a href="#Settings">Settings</a></li>
 <li><a href="#Advanced">Advanced Settings</a></li>
@@ -31,6 +32,7 @@
 <li><a href="#Changelog">Changelog</a></li>
 <li><a href="#License">License</a></li>
 </ul>
+</nav>
 
 
 <h2 id="Settings">Settings</h2>
@@ -232,6 +234,12 @@ id 属性での指定より優先されます</td>
 <td>停止位置の基準点をずらします</td>
 </tr>
 <tr>
+<td><code>data-backtothetop-hash</code></td>
+<td>ブール型</td>
+<td>true</td>
+<td>ブラウザに履歴を追加</td>
+</tr>
+<tr>
 <td><code>data-backtothetop-fixed-scroll-offset</code></td>
 <td>数値 (px)</td>
 <td>0</td>
@@ -310,6 +318,16 @@ id 属性での指定より優先されます</td>
 
 <h2 id="Changelog">Changelog</h2>
 <ul>
+
+<li>Version 1.1.7 - 2017-05-06
+<ul>
+<li>add hash</li>
+<li>add namespace</li>
+<li>fix gulpfile, using yarn</li>
+<li>fix tests</li>
+<li>rename folder to docs, change gh-pages</li>
+</ul>
+</li>
 
 <li>Version 1.1.6 - 2016-03-08
 <ul>
