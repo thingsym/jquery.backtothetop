@@ -26,10 +26,14 @@
 
     var init = function() {
       $('a[href^="#"]').on('click.BackToTheTop', function() {
-        var scrollTop = $(this).data('backtothetop-scrolltop') !== undefined ? $(this).data('backtothetop-scrolltop') : $(this.hash).offset() ? $(this.hash).offset().top : $(this).attr('id') == 'backtothetop-fixed' && $(this).attr('href') == '#' ? 0 : null ;
+        var scrollTop =
+            $(this).data('backtothetop-scrolltop') !== undefined ? $(this).data('backtothetop-scrolltop')
+          : $(this.hash).offset() ? $(this.hash).offset().top
+          : $(this).attr('id') == 'backtothetop-fixed' && $(this).attr('href') == '#' ? 0
+          : null ;
 
         if (scrollTop === null)
-            return;
+          return;
 
         var duration = $(this).data('backtothetop-duration') ? $(this).data('backtothetop-duration') : defaults.duration ;
         var easing = $(this).data('backtothetop-easing') ? $(this).data('backtothetop-easing') : defaults.easing ;
