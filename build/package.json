@@ -1,0 +1,41 @@
+{
+  "name": "jquery.backtothetop",
+  "main": "jquery.backtothetop.min.js",
+  "version": "1.1.7",
+  "title": "jQuery Plugin Back to the Top",
+  "description": "Return to scroll smoothly to the top of the page. You can scroll to the smooth anchor link in the page.",
+  "homepage": "http://thingsym.github.io/jquery.backtothetop/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thingsym/jquery.backtothetop"
+  },
+  "author": "thingsym",
+  "license": "Dual licensed under the MIT and GPLv2 licenses.",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://www.opensource.org/licenses/mit-license.php"
+    },
+    {
+      "type": "GPLv2",
+      "url": "http://www.gnu.org/licenses/gpl-2.0.html"
+    }
+  ],
+  "dependencies": {
+    "jquery": ">=3.2.1",
+    "jquery.easing": "~1.4.1"
+  },
+  "devDependencies": {
+    "browser-sync": "~2.18.8",
+    "gulp": "~3.9.1",
+    "gulp-header": "^1.8.8",
+    "gulp-jshint": "~2.0.4",
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-rename": "~1.2.2",
+    "gulp-uglify": "~2.1.2",
+    "jshint": "^2.9.4",
+    "jshint-stylish": "^2.2.1",
+    "mocha": "^3.2.0",
+    "printf": "^0.2.5"
+  }
+}

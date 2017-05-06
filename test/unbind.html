@@ -7,8 +7,17 @@
 <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 <script type="text/javascript" src="jquery.backtothetop.min.js"></script>
+<script>
+(function($) {
+    $(window).on('load', function() {
+        $('a[href^="#"]').off('click.BackToTheTop');
+        $(window).off('scroll.BackToTheTop');
+        // $(window).off('.BackToTheTop');
+    });
+})(jQuery);
+</script>
 </head>
-<body>
+<body id="top">
 
 <div class="entry-content">
 
