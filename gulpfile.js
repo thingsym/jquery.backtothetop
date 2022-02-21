@@ -1,78 +1,94 @@
 'use strict';
 
-var gulp = require('gulp');
-var $ = require('gulp-load-plugins')();
-var printf = require('printf');
+const gulp = require('gulp');
+const $ = require('gulp-load-plugins')();
 
-var browserSync = require('browser-sync').create();
-var reload = browserSync.reload;
+const printf = require('printf');
 
-var pkg = require('./package.json');
+const browserSync = require('browser-sync').create();
+const browserSync_baseDir = './test';
 
-var src_paths = {
-  html: ['../test/*.html'],
-  scripts: ['../jquery.backtothetop.js'],
-  dist: ['../jquery.backtothetop.min.js']
+const pkg = require('./package.json');
+
+const src_paths = {
+	scripts: [ 'jquery.backtothetop.js' ],
+	dist: [ 'jquery.backtothetop.min.js' ],
+	watch: [ 'jquery.backtothetop.js', './test/*' ]
 };
 
-var dist_paths = {
-  scripts: '../',
-  docs: '../docs/js',
-  browserSync: '../test',
+const dist_paths = {
+	scripts: './',
+	docs: './docs/js',
+	test: './test',
 };
 
-gulp.task('default', function() {
-  var date = new Date();
-  var licenses = [];
-  for (var license in pkg.licenses) {
-    licenses.push(pkg.licenses[license].url);
-  }
+function js_minify() {
+	const date = new Date();
+	const licenses = [];
+	for (const license in pkg.licenses) {
+		licenses.push(pkg.licenses[license].url);
+	}
 
-  var header = [ '/*!',
-    ' * <%= pkg.title %>',
-    ' * Version <%= pkg.version %>',
-    ' * Update: ' + printf('%04d-%02d-%02d %02d:%02d:%02d', date.getFullYear(), date.getMonth() + 1, date.getDate(), date.getHours(), date.getMinutes(), date.getSeconds()),
-    ' * Copyright ' + printf('%04d', date.getFullYear()) + ' <%= pkg.author %>',
-    ' * URI: <%= pkg.url %>',
-    ' * Repository: <%= pkg.repository.url %>',
-    ' * License: <%= pkg.license %>',
-    ' * ' + licenses.join("\n * "),
-    '*/',
-    ''].join('\n');
+	const header = [ '/*!',
+		' * <%= pkg.title %>',
+		' * Version <%= pkg.version %>',
+		' * Update: ' + printf('%04d-%02d-%02d %02d:%02d:%02d', date.getFullYear(), date.getMonth() + 1, date.getDate(), date.getHours(), date.getMinutes(), date.getSeconds()),
+		' * Copyright ' + printf('%04d', date.getFullYear()) + ' <%= pkg.author %>',
+		' * URI: <%= pkg.url %>',
+		' * Repository: <%= pkg.repository.url %>',
+		' * License: <%= pkg.license %>',
+		' * ' + licenses.join("\n * "),
+		'*/',
+		''].join('\n');
 
-  gulp.src(src_paths.scripts)
-    .pipe($.header(header, { pkg : pkg }))
-    .pipe($.jshint())
-    .pipe($.jshint.reporter('jshint-stylish'))
-    .pipe($.uglify({preserveComments: 'some'}))
-    .pipe($.rename({suffix: '.min'}))
-    .pipe(gulp.dest(dist_paths.scripts));
-});
+	return gulp.src(src_paths.scripts)
+		.pipe($.header(header, { pkg: pkg }))
+		.pipe($.jshint())
+		.pipe($.jshint.reporter('jshint-stylish'))
+		.pipe($.uglify({
+			output:{
+				comments: /^!/
+			}
+		}))
+		.pipe($.rename({
+				suffix: '.min'
+		}))
+		.pipe(gulp.dest(dist_paths.scripts))
+		.pipe(browserSync.stream());
+};
 
-gulp.task('docs', function() {
-  gulp.src(src_paths.dist)
-    .pipe(gulp.dest(dist_paths.docs));
-});
+function dist_docs() {
+	return gulp.src(src_paths.dist)
+		.pipe(gulp.dest(dist_paths.docs));
+}
 
-gulp.task('browser-sync', function() {
-  browserSync.init({
-      // proxy: '0.0.0.0',
-      // open: false,
-      server: {
-        baseDir: dist_paths.browserSync
-      },
-      files: [
-        dist_paths.browserSync + '/**'
-      ]
-    });
+function dist_test() {
+	return gulp.src(src_paths.dist)
+		.pipe(gulp.dest(dist_paths.test));
+}
 
-    gulp.watch([ src_paths.scripts ], ['default']);
-    gulp.watch([ src_paths.dist ], function () {
-      gulp.src(src_paths.dist)
-        .pipe(gulp.dest(dist_paths.browserSync));
-    }).on('change', reload);
-});
+function browser_sync(done) {
+	browserSync.init({
+		server: {
+			baseDir: browserSync_baseDir
+		},
+		open: false,
+		reloadOnRestart: true,
+		ui: false
+	});
+	done();
+}
 
-gulp.task('watch', function() {
-  gulp.watch(src_paths.scripts, ['default']);
-});
+function watch_files(done) {
+	const browserReload = () => {
+		browserSync.reload();
+		done();
+	};
+
+	gulp.watch(src_paths.watch, { usePolling: true }).on('change', gulp.series(js_minify, dist_docs, dist_test, browserReload));
+};
+
+exports.dist = gulp.series(dist_docs, dist_test);
+exports.serve = gulp.series(browser_sync, watch_files);
+exports.watch = gulp.series(watch_files);
+exports.default = gulp.series(js_minify);
