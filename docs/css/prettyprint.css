@@ -32,12 +32,12 @@
 }
 
 /* Put a border around prettyprinted code snippets. */
-pre.prettyprint { padding: 1em; border: 1px solid #1E8631 }
+pre.prettyprint { padding: 1em; border: 1px solid #000 }
 
 /* Specify class=linenums on a pre to get line numbering */
 ol.linenums { margin-top: 0; margin-bottom: 0;} /* IE indents via margin-left */
 li.L0, li.L1, li.L2, li.L3, li.L4, li.L5, li.L6, li.L7, li.L8, li.L9 {
-	border-left: 2px solid #1E8631;
+	border-left: 2px solid #000;
 	margin-left: 1em;
 	padding-left: 1em;
 }
@@ -51,8 +51,8 @@ li.L0:hover, li.L1:hover, li.L2:hover, li.L3:hover, li.L4:hover, li.L5:hover, li
 .prettyprint {
 	font-size: 80%;
 	font-family: Verdana,Arial,sans-serif;
-	border: 1px solid #1E8631;
-	background-color: #fff;
+	border: 1px solid #000;
+	background-color: #f4f4f4;
 	padding: 1em;
 	-moz-border-radius: 6px;
 	-webkit-border-radius: 6px;
@@ -77,9 +77,9 @@ span.prettylabel,
 div.prettylabel {
 	font-family: Verdana,Arial,sans-serif;
 	font-size: 65%;
-	background: #fff;
-	border: 1px solid #1E8631;
-	border-bottom: none;
+	background: #f4f4f4;
+	border: 1px solid #000;
+	border-bottom: 1px solid #f4f4f4;
 	display: inline-block;
 	margin: 0 0 0 1em;
 	padding: 0 2em;
