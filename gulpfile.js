@@ -13,7 +13,7 @@ const pkg = require('./package.json');
 const src_paths = {
 	scripts: [ 'jquery.backtothetop.js' ],
 	dist: [ 'jquery.backtothetop.min.js' ],
-	watch: [ 'jquery.backtothetop.js', './test/*' ]
+	watch: [ '*.js', '!*.min.js', '!gulpfile.js', './test/*' ]
 };
 
 const dist_paths = {
