@@ -4,8 +4,8 @@ Back to the Top is a jQuery plugin to return to scroll smoothly to the top of th
 
 Documentation:
 
-* [http://thingsym.github.io/jquery.backtothetop/](http://thingsym.github.io/jquery.backtothetop/)
-* [Japanese](http://thingsym.github.io/jquery.backtothetop/index-ja.html)
+* [https://thingsym.github.io/jquery.backtothetop/](https://thingsym.github.io/jquery.backtothetop/)
+* [Japanese](https://thingsym.github.io/jquery.backtothetop/index-ja.html)
 
 ## Contribution
 
@@ -13,7 +13,7 @@ Documentation:
 
 Small patches and bug reports can be submitted a issue tracker in Github. Forking on Github is another good way. You can send a pull request.
 
-1. Fork [jQuery Plugin Back to the Top](http://thingsym.github.io/jquery.backtothetop/) from GitHub repository
+1. Fork [jQuery Plugin Back to the Top](https://thingsym.github.io/jquery.backtothetop/) from GitHub repository
 2. Create a feature branch: git checkout -b my-new-feature
 3. Commit your changes: git commit -am 'Add some feature'
 4. Push to the branch: git push origin my-new-feature
