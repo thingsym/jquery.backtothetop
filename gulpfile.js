@@ -68,15 +68,16 @@ function dist_test() {
 }
 
 function browser_sync(done) {
-	browserSync.init({
-		server: {
-			baseDir: browserSync_baseDir
-		},
-		open: false,
-		reloadOnRestart: true,
-		ui: false
-	});
-	done();
+  browserSync.init({
+    server: {
+      baseDir: browserSync_baseDir,
+      index : 'index.html',
+    },
+    open: false,
+    reloadOnRestart: true,
+    ui: false
+  });
+  done();
 }
 
 function watch_files(done) {
