@@ -7,6 +7,23 @@ Documentation:
 * [https://thingsym.github.io/jquery.backtothetop/](https://thingsym.github.io/jquery.backtothetop/)
 * [Japanese](https://thingsym.github.io/jquery.backtothetop/index-ja.html)
 
+## Docker Development Environment
+
+### Build and launch website
+
+```
+docker compose run --rm node npm install
+docker compose run --rm  -p 3000:3000 node npm run serve
+```
+
+Access to URL http://localhost:3000
+
+### listing tasks
+
+```
+docker compose run --rm node npm run
+```
+
 ## Contribution
 
 ### Patches and Bug Fixes
