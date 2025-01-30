@@ -71,7 +71,7 @@
 <p>Download the jquery.easing. Or set the jquery.easing that is delivered from the CDN.</p>
 
 <p><a href="https://gsgd.co.uk/sandbox/jquery/easing/">Download jquery.easing</a>, or <a href="https://cdnjs.com/libraries/jquery-easing">CDN</a><br>
-<a href="https://jqueryui.com/">Download jQuery UI</a>
+Or <a href="https://jqueryui.com/">Download jQuery UI</a>
 </p>
 
 <pre class="prettyprint">
@@ -92,18 +92,34 @@
 
 <h3>4. Setting anchor link in the page</h3>
 
-
-
 <p>Set anchor link in the page. If you want to set the easing and speed, Set the options referring to the <a href="#Advanced">Settings &gt; Advanced</a>.</p>
 
-<h3>To the top of the page</h3>
+<h4>Anchor link in the page</h4>
+
+<ol>
+<li>Add a <code>#**</code> in the href attribute of the anchor link. The attribute value is to your liking.</li>
+<li>Add a <code>**</code> in an id attribute of tag which is the stop position of the scroll.</li>
+</ol>
+
+<h4>Sample</h4>
+<span class="prettylabel">html</span>
+<pre class="prettyprint">
+&lt;a href="#link"&gt;link&lt;/a&gt;
+
+...
+
+&lt;h1 id="link"&gt;header&lt;/h1&gt;
+</pre>
+
+
+<h4>To the top of the page</h4>
 
 <ol>
 <li>Add a <code>#</code> in the href attribute of the anchor link.</li>
 <li>Add a <code>backtothetop-fixed</code> in the id attribute of the anchor link.</li>
 </ol>
 
-<h3>Sample</h3>
+<h4>Sample</h4>
 <span class="prettylabel">html</span>
 <pre class="prettyprint">
 &lt;body&gt;
@@ -121,7 +137,7 @@
 <li>Add a <code>**</code> in an id attribute of tag which is the stop position of the scroll.</li>
 </ol>
 
-<h3>Sample</h3>
+<h4>Sample</h4>
 <span class="prettylabel">html</span>
 <pre class="prettyprint">
 &lt;body id="top"&gt;
@@ -131,24 +147,6 @@
 &lt;a href="#top" id="backtothetop-fixed"&gt;Back to the Top&lt;/a&gt;
 </pre>
 
-<h3>Anchor link in the page</h3>
-
-<ol>
-<li>Add a <code>#**</code> in the href attribute of the anchor link. The attribute value is to your liking.</li>
-<li>Add a <code>**</code> in an id attribute of tag which is the stop position of the scroll.</li>
-</ol>
-
-<h3>Sample</h3>
-<span class="prettylabel">html</span>
-<pre class="prettyprint">
-&lt;a href="#link"&gt;link&lt;/a&gt;
-
-...
-
-&lt;h1 id="link"&gt;header&lt;/h1&gt;
-</pre>
-
-
 <h3>5. Operation check</h3>
 
 <p>check whether to scroll.</p>
@@ -156,6 +154,24 @@
 <h2 id="Advanced">Advanced Settings</h2>
 
 <p>You can be customized using the attribute <code>data-*</code>.</p>
+
+<h3>Anchor link in the page</h3>
+
+<ol>
+<li>Add a <code>#**</code> in the href attribute of the anchor link. The attribute value is to your liking.</li>
+<li>Add <code>data-*</code> attributes in the the anchor link, referring to <a href="#Options">the available options</a>.</li>
+</ol>
+
+<h4>Sample</h4>
+<span class="prettylabel">html</span>
+<pre class="prettyprint">
+&lt;a href="#top"
+	data-backtothetop-duration="600"
+	data-backtothetop-easing="easeOutQuart"
+	data-backtothetop-offset="100"
+&gt;link&lt;/a&gt;
+</pre>
+
 
 <h3>To the top of the page</h3>
 
@@ -165,37 +181,20 @@
 <li>Add <code>data-*</code> attributes in the the anchor link, referring to <a href="#Options">the available options</a>.</li>
 </ol>
 
-<h3>Sample</h3>
+<h4>Sample</h4>
 <span class="prettylabel">html</span>
 <pre class="prettyprint">
 &lt;a href="#top" id="backtothetop-fixed"
- data-backtothetop-duration="600"
- data-backtothetop-easing="easeOutQuart"
- data-backtothetop-offset="100"
- data-backtothetop-fixed-scroll-offset="500"
- data-backtothetop-fixed-fadeIn="1000"
- data-backtothetop-fixed-fadeOut="1000"
- data-backtothetop-fixed-display="bottom-right"
- data-backtothetop-fixed-bottom="10"
- data-backtothetop-fixed-right="10"
+	data-backtothetop-duration="600"
+	data-backtothetop-easing="easeOutQuart"
+	data-backtothetop-offset="100"
+	data-backtothetop-fixed-scroll-offset="500"
+	data-backtothetop-fixed-fadeIn="1000"
+	data-backtothetop-fixed-fadeOut="1000"
+	data-backtothetop-fixed-display="bottom-right"
+	data-backtothetop-fixed-bottom="10"
+	data-backtothetop-fixed-right="10"
 &gt;Back to the Top&lt;/a&gt;
-</pre>
-
-<h3>Anchor link in the page</h3>
-
-<ol>
-<li>Add a <code>#**</code> in the href attribute of the anchor link. The attribute value is to your liking.</li>
-<li>Add <code>data-*</code> attributes in the the anchor link, referring to <a href="#Options">the available options</a>.</li>
-</ol>
-
-<h3>Sample</h3>
-<span class="prettylabel">html</span>
-<pre class="prettyprint">
-&lt;a href="#top"
- data-backtothetop-duration="600"
- data-backtothetop-easing="easeOutQuart"
- data-backtothetop-offset="100"
-&gt;link&lt;/a&gt;
 </pre>
 
 <h2 id="Options">Options</h2>
@@ -299,9 +298,9 @@ it takes precedence than specified in the id attribute</td>
 <h2 id="Required">Required</h2>
 
 <ul>
-<li>jQuery version 1.7.+ (<a href="https://docs.jquery.com/">https://docs.jquery.com/</a>)</li>
+<li>jQuery version 1.7.+ (<a href="https://jquery.com/">https://jquery.com/</a>)</li>
 <li>jquery.easing version 1.3.+ (<a href="https://gsgd.co.uk/sandbox/jquery/easing/">https://gsgd.co.uk/sandbox/jquery/easing/</a>)</li>
-<li>jQuery UI (<a href="https://jqueryui.com/">https://jqueryui.com/</a>)</li>
+<li>jQuery UI (<a href="https://jqueryui.com/">https://jqueryui.com/</a>) - using easing</li>
 </ul>
 
 
