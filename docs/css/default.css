@@ -257,21 +257,22 @@ nav ul li:last-child:after {
 .entry-content h2,
 .entry-content h3,
 .entry-content h4 {
-	font-weight: normal;
+	font-weight: bold;
+	margin: 0 0 1em;
 }
 
 .entry-content h1 {
 	font-size: 240%;
-	margin: 0 0 1em;
 }
 .entry-content h2 {
 	font-size: 240%;
-	margin: 0 0 1em;
 	border-bottom: 2px solid #000;
 }
 .entry-content h3 {
 	font-size: 140%;
-	margin: 1em 0;
+}
+.entry-content h4 {
+	font-size: 120%;
 }
 
 /* backtothetop */
