@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## [1.1.9] - 2025-01-30
+
+* edit docs
+* add npm scripts
+* fix browser_sync
+* add Docker Development Environment
+* add CHANGELOG.md
+* Support browser back button[#1]
+
 ## [1.1.8] - 2022-02-21
 
 * fix docs
